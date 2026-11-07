@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isAdmin() {
+      return signedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'chorl.studios.official@gmail.com';
+    }
+    function validText(value, max) {
+      return value is string && value.size() <= max;
+    }
+    function validApplication(data) {
+      return validText(data.nick, 32) && data.nick.size() > 0
+        && validText(data.email, 120) && data.email.size() > 3
+        && validText(data.discord, 64) && data.discord.size() > 1
+        && data.rules in ['Да', 'Нет']
+        && data.banned in ['Да', 'Нет']
+        && data.googleEmail == request.auth.token.email
+        && validText(data.googleName, 120)
+        && data.playTime in ['', 'Меньше месяца', '1–6 месяцев', '6–12 месяцев', 'Более года']
+        && data.activities is list
+        && data.activities.size() <= 7
+        && data.activities.hasOnly(['Строительство', 'Добыча ресурсов', 'Фермерство', 'Торговля и экономика', 'Редстоун', 'Исследование мира', 'Другое'])
+        && validText(data.why, 2000)
+        && validText(data.expect, 2000)
+        && validText(data.withFriends, 500)
+        && validText(data.about, 2000)
+        && validText(data.extra, 2000);
+    }
+    match /applications/{userId} {
+      allow get: if signedIn() && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+      allow create: if signedIn()
+        && request.auth.uid == userId
+        && validApplication(request.resource.data);
+      allow update: if signedIn()
+        && request.auth.uid == userId
+        && validApplication(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if false;
+    }
+  }
+}

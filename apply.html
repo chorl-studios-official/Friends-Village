@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Заявка — Friends Village</title>
+    <meta name="description" content="Анкета на сервер Friends Village. Вход через Google." />
+    <meta name="theme-color" content="#081410" />
+    <link rel="icon" href="images/mark.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">К содержанию</a>
+    <header class="header is-stuck" data-header>
+      <a class="brand" href="index.html">
+        <img src="images/mark.png" alt="" width="36" height="36" />
+        <span>Friends Village</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Меню</span>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" data-nav>
+        <a href="index.html#about">О сервере</a>
+        <a href="index.html#world">Мир</a>
+        <a href="index.html#join">Как зайти</a>
+        <a class="nav-cta" href="#form">Подать заявку</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <p class="eyebrow">Заявка</p>
+      <h1>Анкета на сервер</h1>
+      <p class="lead">Войдите через Google и ответьте на вопросы. Администрация свяжется с вами в Discord или по почте.</p>
+
+      <section class="panel" id="gate">
+        <h2>Вход через Google</h2>
+        <p class="note">Заявку можно отправить только со своего аккаунта Google. Почта в анкете может отличаться от почты входа.</p>
+        <button class="button" type="button" id="sign-in">Войти через Google</button>
+      </section>
+
+      <section id="form" hidden>
+        <div class="account">
+          <div>
+            <strong id="account-name"></strong>
+            <span id="account-email"></span>
+          </div>
+          <button class="button-quiet" type="button" id="sign-out">Выйти</button>
+        </div>
+        <form class="form" id="application">
+          <label class="field">
+            <span>Ник <abbr class="req" title="обязательно">*</abbr></span>
+            <input name="nick" type="text" required maxlength="32" autocomplete="nickname" />
+          </label>
+          <label class="field">
+            <span>Адрес электронной почты <abbr class="req" title="обязательно">*</abbr></span>
+            <input name="email" type="email" required maxlength="120" autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>Дискорд <abbr class="req" title="обязательно">*</abbr></span>
+            <input name="discord" type="text" required maxlength="64" placeholder="имя или ник" />
+          </label>
+          <fieldset class="field">
+            <legend>Как долго вы играете в Minecraft?</legend>
+            <div class="choices">
+              <label><input type="radio" name="playTime" value="Меньше месяца" /> Меньше месяца</label>
+              <label><input type="radio" name="playTime" value="1–6 месяцев" /> 1–6 месяцев</label>
+              <label><input type="radio" name="playTime" value="6–12 месяцев" /> 6–12 месяцев</label>
+              <label><input type="radio" name="playTime" value="Более года" /> Более года</label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Что вам нравится делать больше всего?</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="activities" value="Строительство" /> Строительство</label>
+              <label><input type="checkbox" name="activities" value="Добыча ресурсов" /> Добыча ресурсов</label>
+              <label><input type="checkbox" name="activities" value="Фермерство" /> Фермерство</label>
+              <label><input type="checkbox" name="activities" value="Торговля и экономика" /> Торговля и экономика</label>
+              <label><input type="checkbox" name="activities" value="Редстоун" /> Редстоун</label>
+              <label><input type="checkbox" name="activities" value="Исследование мира" /> Исследование мира</label>
+              <label><input type="checkbox" name="activities" value="Другое" /> Другое</label>
+            </div>
+          </fieldset>
+          <label class="field">
+            <span>Почему вы хотите попасть именно на Friends Village?</span>
+            <textarea name="why" maxlength="2000"></textarea>
+          </label>
+          <label class="field">
+            <span>Что вы ожидаете от сервера?</span>
+            <textarea name="expect" maxlength="2000"></textarea>
+          </label>
+          <label class="field">
+            <span>Планируете ли вы играть с друзьями или один?</span>
+            <textarea name="withFriends" maxlength="500"></textarea>
+          </label>
+          <fieldset class="field">
+            <legend>Готовы ли вы соблюдать правила сервера? <abbr class="req" title="обязательно">*</abbr></legend>
+            <div class="choices">
+              <label><input type="radio" name="rules" value="Да" required /> Да</label>
+              <label><input type="radio" name="rules" value="Нет" /> Нет</label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Были ли вы когда-либо забанены на других серверах? <abbr class="req" title="обязательно">*</abbr></legend>
+            <div class="choices">
+              <label><input type="radio" name="banned" value="Да" required /> Да</label>
+              <label><input type="radio" name="banned" value="Нет" /> Нет</label>
+            </div>
+          </fieldset>
+          <label class="field">
+            <span>Расскажите немного о себе.</span>
+            <textarea name="about" maxlength="2000"></textarea>
+          </label>
+          <label class="field">
+            <span>Есть ли что-то ещё, что вы хотели бы сообщить администрации?</span>
+            <textarea name="extra" maxlength="2000"></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button" type="submit" id="submit">Отправить заявку</button>
+          </div>
+          <p class="status" id="status" role="status"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div>
+        <img src="images/mark.png" alt="" width="32" height="32" />
+        <strong>Friends Village</strong>
+      </div>
+      <p><a href="admin.html">Заявки</a></p>
+    </footer>
+    <script src="script.js"></script>
+    <script type="module" src="apply.js"></script>
+  </body>
+</html>

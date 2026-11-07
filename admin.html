@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Заявки — Friends Village</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#081410" />
+    <link rel="icon" href="images/mark.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">К содержанию</a>
+    <header class="header is-stuck" data-header>
+      <a class="brand" href="index.html">
+        <img src="images/mark.png" alt="" width="36" height="36" />
+        <span>Friends Village</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Меню</span>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav" data-nav>
+        <a href="index.html#about">О сервере</a>
+        <a href="apply.html">Анкета</a>
+        <a class="nav-cta" href="#list">Заявки</a>
+      </nav>
+    </header>
+    <main id="main" class="page">
+      <p class="eyebrow">Администрация</p>
+      <h1>Кто подал заявку</h1>
+      <p class="lead">Список открыт только для chorl.studios.official@gmail.com.</p>
+      <section class="panel" id="gate">
+        <button class="button" type="button" id="sign-in">Войти через Google</button>
+      </section>
+      <section id="list" hidden>
+        <div class="account">
+          <div>
+            <strong id="account-name"></strong>
+            <span id="account-email"></span>
+          </div>
+          <button class="button-quiet" type="button" id="sign-out">Выйти</button>
+        </div>
+        <p class="status" id="status" role="status"></p>
+        <div class="cards" id="cards"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div>
+        <img src="images/mark.png" alt="" width="32" height="32" />
+        <strong>Friends Village</strong>
+      </div>
+      <p><a href="index.html">На главную</a></p>
+    </footer>
+    <script src="script.js"></script>
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>

@@ -498,6 +498,125 @@ blockquote {
   .footer { flex-direction: column; align-items: flex-start; }
 }
 
+.page {
+  width: min(760px, calc(100% - 12vw));
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+}
+
+.page h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.6rem;
+}
+
+.lead {
+  color: var(--mist);
+  margin-bottom: 1.4rem;
+}
+
+.panel {
+  padding: 1.3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  background: #10241c;
+  border-radius: 16px;
+}
+
+.account strong { display: block; }
+
+.account span { color: var(--mist); font-size: 0.92rem; }
+
+.form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+}
+
+.field span,
+.field legend {
+  font-weight: 800;
+}
+
+.req { color: #ffb4a8; }
+
+.field input[type="text"],
+.field input[type="email"],
+.field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(242, 193, 78, 0.35);
+  background: transparent;
+  color: var(--cream);
+  font: inherit;
+  padding: 0.45rem 0;
+}
+
+.field textarea { min-height: 6.5rem; resize: vertical; }
+
+.choices { display: grid; gap: 0.45rem; border: 0; margin: 0; padding: 0; }
+
+.choices label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--mist);
+  font-weight: 600;
+}
+
+.form-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+
+button.button,
+.button-quiet {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.note, .status { color: var(--mist); }
+
+.status.is-ok { color: #b7f0c4; }
+
+.status.is-bad { color: #ffb4a8; }
+
+.cards { display: grid; gap: 0.9rem; }
+
+.card-app h2 { font-size: 1.25rem; margin-bottom: 0.2rem; }
+
+.meta { color: var(--gold); font-size: 0.85rem; font-weight: 800; }
+
+.answers { margin: 0.8rem 0 0; display: grid; gap: 0.55rem; }
+
+.answers div { color: var(--mist); }
+
+.answers dt { color: var(--cream); font-weight: 800; }
+
+.footer a { color: var(--gold); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .button:hover { transform: none; }
