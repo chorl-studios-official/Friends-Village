@@ -1,4 +1,5 @@
 .tools/
 .preview/
+.firebase/
 .DS_Store
 Thumbs.db
